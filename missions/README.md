@@ -33,6 +33,12 @@ Mission12: Forest Elder
 [Mission12.tiff](https://github.com/user-attachments/files/33314901/Mission12.tiff)
 
 Mission13: Keystone Species
+[Mission13.tiff](https://github.com/user-attachments/files/33314919/Mission13.tiff)
+
+Mission14: Seeds of Renewal
+
+
+
 
 
 
