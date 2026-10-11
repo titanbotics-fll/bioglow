@@ -38,6 +38,7 @@ Mission13: Keystone Species
 Mission14: Seeds of Renewal
 
 
+
 Mission15: Biocentric Architecture
 [Mission15.tiff](https://github.com/user-attachments/files/33314960/Mission15.tiff)
 
