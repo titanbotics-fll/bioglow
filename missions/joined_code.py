@@ -459,6 +459,15 @@ def run_8():#____
     check_cancel
     robot.straight(-650)
     check_cancel
+
+def run_9():#____   
+    get_ready(align_on_wall=True)
+    robot.settings(straight_speed=750, straight_acceleration=500)
+    robot.arc(radius=-480, angle=45)
+    robot.straight(50)
+    right_arm.run_angle(1110, -210)
+    robot.arc(radius=-480, angle=-45)
+
 def wait_for_release():
     """Require a fresh button press for each menu action."""
     while hub.buttons.pressed():
@@ -477,6 +486,7 @@ def menu():
         run_6,
         run_7,
         run_8,
+        run_9
     )
 
     
@@ -495,12 +505,12 @@ def menu():
             wait(10)
 
         elif Button.LEFT in pressed:
-            selected = 1 if selected == 8 else selected + 1
+            selected = 1 if selected == 9 else selected + 1
             hub.display.char(str(selected))
             wait_for_release()
 
         elif Button.RIGHT in pressed:
-            selected = 8 if selected == 1 else selected - 1
+            selected = 9 if selected == 1 else selected - 1
             hub.display.char(str(selected))
             wait_for_release()
 
