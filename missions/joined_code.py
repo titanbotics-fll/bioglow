@@ -213,6 +213,8 @@ def run_3():
     move(right_arm, "run_angle", 1110, -240)
     check_cancel()
     move(robot, "straight", 770)
+    check_cancel
+    move(robot, "turn", 3)
     check_cancel()
     move(right_arm, "run_angle", 1110, 60)
     check_cancel()
@@ -222,13 +224,13 @@ def run_3():
     check_cancel()
     robot.settings(turn_rate=120, turn_acceleration=400)
     check_cancel()
-    move(robot, "turn", 6)
+    move(robot, "turn", 5.99889999888898999998889999889999889998899888989988188828)
     check_cancel()
     move(robot, "straight", 85)
     check_cancel()
     move(right_arm, "run_angle", 1110, 180)
     check_cancel()
-    move(robot, "turn", -12)
+    move(robot, "turn", -15)
     check_cancel()
     move(robot, "straight", -590)
     check_cancel()
@@ -244,9 +246,18 @@ def run_3():
     check_cancel
     move(right_arm, "run_angle", 1110, 150)
     check_cancel()
-    move(robot, "straight", 250)
+    move(robot, "straight", 300)
+    check_cancel
+    move(right_arm, "run_angle", 1100, -150)
+    robot.settings(straight_speed=750, straight_acceleration=750, turn_acceleration=750, turn_rate=750)
     check_cancel()
-    move(robot, "straight", -450)
+    move(robot, "straight", -100)
+    check_cancel
+    move(robot, "turn", 20)
+    check_cancel
+    move(right_arm, "run_angle", 1110, 150)
+    check_cancel
+    move(robot, "straight", -350)
     check_cancel()
 def run_4():
     check_cancel()
@@ -414,22 +425,40 @@ def run_7():#____
 def run_8():#____    
     get_ready(align_on_wall=False)
     robot.settings(straight_speed=750, straight_acceleration=750, turn_rate=750, turn_acceleration=500)
-    move(right_arm, "run_angle", 1000, 250)
-    move(robot, "straight", 850)
+    #move(right_arm, "run_angle", 1000, 250)
+    #move(robot, "straight", 850)
     #drive_base.turn(-20)
-    move(robot, "turn", -20)
-    move(robot, "straight", 350)
-    #drive_base.turn(45)
-    move(robot, "turn", 45)
-    move(robot, "straight", 300)
-    #drive_base.turn(22)
-    move(robot, "turn", 30)
+    #move(robot, "turn", -20)
+    #move(robot, "straight", 350)
+    ##drive_base.turn(45)
+    #move(robot, "turn", 45)
+    #move(robot, "straight", 300)
+    ##drive_base.turn(22)
+    #move(robot, "turn", 30)
+    #move(robot, "straight", 500)
+    #move(right_arm, "run_angle", 1000, -250)
+    #move(robot, "straight", -80)
+    #move(robot, "turn", 50)
+    ##drive_base.turn(50)
+    #move(robot, "straight", -700)
+    robot.settings(straight_acceleration=500, straight_speed=750, turn_acceleration=750, turn_rate=750)
+    robot.arc(radius=-300, angle=75)
+    check_cancel
+    robot.arc(radius=-700, angle=15)
     move(robot, "straight", 500)
-    move(right_arm, "run_angle", 1000, -250)
-    move(robot, "straight", -80)
-    move(robot, "turn", 50)
-    #drive_base.turn(50)
-    move(robot, "straight", -700)
+    check_cancel
+    robot.arc(500, 60)
+    check_cancel
+    right_arm.run_angle(1110, 180)
+    check_cancel
+    robot.straight(200)
+    check_cancel
+    right_arm.run_angle(1100, -180)
+    check_cancel
+    robot.turn(30)
+    check_cancel
+    robot.straight(-650)
+    check_cancel
 def wait_for_release():
     """Require a fresh button press for each menu action."""
     while hub.buttons.pressed():
@@ -493,4 +522,5 @@ def menu():
             hub.display.char(str(selected))
             wait_for_release()
         wait(20)
+
 menu()
