@@ -268,16 +268,19 @@ def run_4():
     robot.settings(straight_speed=400, straight_acceleration=500)
     cancellable_action(right_arm, "run_until_stalled", 300, duty_limit=40)
     robot.arc(radius=695, angle=60)
-    move(robot, "straight", 20)
-    move(robot, "turn", -57)
+    #move(robot, "straight", 20)
+    #move(robot, "turn", -57)
+    move(robot, "turn", -53)
     move(robot, "straight", 70)
     move(right_arm, "run_angle", 1000, -130)
     move(robot, "straight", -45)
     move(right_arm, "run_angle", 1000, 130)
     move(robot, "straight", -40)
-    move(robot, "turn", 50)
+    #move(robot, "turn", 50)
+    move(robot, "turn", 46)
     move(right_arm, "run_angle", 1110, -170)
-    move(robot, "straight", 300)
+    #move(robot, "straight", 300)
+    move(robot, "straight", 315)
     check_cancel()
 
     # Remaining driving route.
@@ -423,7 +426,7 @@ def run_7():#____
     check_cancel()
 
 def run_8():#____    
-    get_ready(align_on_wall=False)
+    get_ready(align_on_wall=True)
     robot.settings(straight_speed=750, straight_acceleration=750, turn_rate=750, turn_acceleration=500)
     #move(right_arm, "run_angle", 1000, 250)
     #move(robot, "straight", 850)
@@ -444,14 +447,14 @@ def run_8():#____
     robot.settings(straight_acceleration=500, straight_speed=750, turn_acceleration=750, turn_rate=750)
     robot.arc(radius=-300, angle=75)
     check_cancel
-    robot.arc(radius=-700, angle=15)
+    robot.arc(radius=-700, angle=20)
     move(robot, "straight", 500)
     check_cancel
-    robot.arc(500, 60)
+    robot.arc(400, 65)
     check_cancel
     right_arm.run_angle(1110, 180)
     check_cancel
-    robot.straight(200)
+    robot.straight(270)
     check_cancel
     right_arm.run_angle(1100, -180)
     check_cancel
