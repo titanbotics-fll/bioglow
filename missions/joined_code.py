@@ -425,6 +425,7 @@ def run_7():#____
     check_cancel()
     move(robot, "straight", -650)
     check_cancel()
+    #move(robot, "turn", 70, absolute=True)
 
 def run_8():#____    
     get_ready(align_on_wall=True)
