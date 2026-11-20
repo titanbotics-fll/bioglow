@@ -316,6 +316,7 @@ def run_4():
     check_cancel()
     move(robot, "straight", 250)
     check_cancel()
+    robot.settings(straight_acceleration=700, straight_speed=750, turn_acceleration=700, turn_rate=700)
     move(robot, "straight", -100)
     check_cancel()
     move(robot, "turn", -10)
@@ -371,7 +372,7 @@ def run_6():#____
     check_cancel()
     move(left_arm, "run_angle", 250, -110)
     check_cancel()
-    wait(250)
+    wait(500)
     check_cancel()
     move(left_arm, "run_angle", 500, 50)
     check_cancel()
@@ -445,23 +446,27 @@ def run_8():#____
     ##drive_base.turn(50)
     #move(robot, "straight", -700)
     robot.settings(straight_acceleration=500, straight_speed=750, turn_acceleration=750, turn_rate=750)
+    #cancellable_action(right_arm, "run_until_stalled", 200, duty_limit=30)
+    cancellable_action(right_arm, "run_until_stalled", 200, then=Stop.HOLD, duty_limit=30)
     robot.arc(radius=-300, angle=75)
-    check_cancel
+    check_cancel()
     robot.arc(radius=-700, angle=20)
     move(robot, "straight", 500)
-    check_cancel
-    robot.arc(400, 65)
-    check_cancel
-    right_arm.run_angle(1110, 180)
-    check_cancel
-    robot.straight(270)
-    check_cancel
-    right_arm.run_angle(1100, -180)
-    check_cancel
-    robot.turn(30)
-    check_cancel
-    robot.straight(-650)
-    check_cancel
+    check_cancel()
+    robot.arc(400, 60)
+    check_cancel()
+    right_arm.run_angle(1110, -250)
+    check_cancel()
+    move(robot, "straight", 390)
+    check_cancel()
+    move(right_arm, "run_angle", 1100, 200)
+    check_cancel()
+    move(robot, "straight", -250)
+    check_cancel()
+    move(robot, "turn", 40)
+    check_cancel()
+    move(robot, "straight", -650)
+    check_cancel()
 
 def run_9():#____   
     get_ready(align_on_wall=True)
